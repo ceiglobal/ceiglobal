@@ -18,3 +18,5 @@ Suggests:
 Imports: 
     ggplot2,
     unikn
+Depends: 
+    tidyverse
