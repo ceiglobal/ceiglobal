@@ -1,0 +1,20 @@
+Package: ceiglobal
+Title: Customise ggplot2 figures using the CEI style guide
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Dave",
+           family = "Taylor",
+           role = c("aut", "cre"),
+           email = "david.taylor@ceiglobal.org",
+           comment = c(ORCID = "0000-0001-8801-7488"))
+Description: This package applies the CEI style guide (March 2020) to ggplot2 objects to allow for consistent and customisable figures for presentations and publications.
+License: CC BY 4.0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Suggests: 
+    testthat
+Imports: 
+    ggplot2,
+    unikn
