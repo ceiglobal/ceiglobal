@@ -3,18 +3,8 @@
 
 <!-- badges: start -->
 
-\[1\]
-“[![](https://img.shields.io/badge/lifecycle-Experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#Experimental)”
-\[1\]
-“[![](https://travis-ci.org/ceiglobal/ceiglobal.svg?branch=master)](https://travis-ci.org/ceiglobal/ceiglobal)”
-\[1\]
-“[![](https://img.shields.io/github/last-commit/ceiglobal/ceiglobal.svg)](https://github.com/ceiglobal/ceiglobal/commits/master)”
-\[1\]
-“![](https://img.shields.io/badge/Most%20used%20package-in%20CEI-green.svg)”
-\[1\]
-“[![](https://codecov.io/gh/ceiglobal/ceiglobal/branch/master/graph/badge.svg)](https://codecov.io/gh/ceiglobal/ceiglobal)”
-\[1\] “[![CRAN
-checks](https://cranchecks.info/badges/summary/ceiglobal/ceiglobal)](https://cran.r-project.org/web/checks/check_results_ceiglobal/ceiglobal.html)”
+[![](https://img.shields.io/badge/lifecycle-Experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#Experimental)
+![](https://img.shields.io/badge/Most%20used%20package-in%20CEI-green.svg)
 <!-- badges: end -->
 
 The goal of ceiglobal is to provide an easy to use extension to
