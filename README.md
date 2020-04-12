@@ -3,7 +3,7 @@
 
 <!-- badges: start -->
 
-<!-- badges: end -->
+use\_lifecycle\_badge(Experimental) <!-- badges: end -->
 
 The goal of ceiglobal is to provide an easy to use extension to
 `ggplot2` to allow users to easily create beautiful figures consistent
