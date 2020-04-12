@@ -14,17 +14,9 @@ knitr::opts_chunk$set(
 # ceiglobal
 
 <!-- badges: start -->
-```{r badges, results='asis', echo=FALSE, cache=FALSE}
-library(badger)
-badge_lifecycle("Experimental", "orange")
-badge_travis("ceiglobal/ceiglobal")
-badge_last_commit("ceiglobal/ceiglobal")
-badge_custom("Most used package", "in CEI", "green")
-badge_codecov("ceiglobal/ceiglobal")
-badge_cran_checks("ceiglobal/ceiglobal")
-```
+"[![](https://img.shields.io/badge/lifecycle-Experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#Experimental)"
+"![](https://img.shields.io/badge/Most%20used%20package-in%20CEI-green.svg)"
 <!-- badges: end -->
-
 
 The goal of ceiglobal is to provide an easy to use extension to `ggplot2` to allow users to easily create beautiful figures consistent with CEI's style guide.
 
