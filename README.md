@@ -1,10 +1,12 @@
 
-# ceiglobal
+# ceiglobal <img src="man/figures/ceiglobal_hex.png" align="right" width="120" />
 
 <!-- badges: start -->
 
 [![](https://img.shields.io/badge/lifecycle-Experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#Experimental)
 ![](https://img.shields.io/badge/Most%20used%20package-in%20CEI-green.svg)
+[![Travis build
+status](https://travis-ci.com/ceiglobal/ceiglobal.svg?branch=master)](https://travis-ci.com/ceiglobal/ceiglobal)
 <!-- badges: end -->
 
 The goal of ceiglobal is to provide an easy to use extension to
