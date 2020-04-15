@@ -32,7 +32,7 @@ theme_ceiglobal(
   axis_title_size = 12,
   axis_title_face = "plain",
   axis_title_just = "rt",
-  plot_margin = margin(20, 20, 20, 20),
+  plot_margin = margin(5.5, 5.5, 5.5, 5.5),
   grid_col = "#cccccc",
   grid = TRUE,
   axis_col = "#cccccc",

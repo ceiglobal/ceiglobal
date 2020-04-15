@@ -123,7 +123,7 @@ theme_ceiglobal <- function(base_family="Raleway", base_size = 10,
                         axis_title_family = subtitle_family,
                         axis_title_size = 12,
                         axis_title_face = "plain", axis_title_just = "rt",
-                        plot_margin = margin(20, 20, 20, 20),
+                        plot_margin = margin(5.5, 5.5, 5.5, 5.5),
                         grid_col = "#cccccc", grid = TRUE,
                         axis_col = "#cccccc", axis = FALSE, ticks = FALSE) {
 
