@@ -32,7 +32,7 @@ theme_ceiglobal(
   axis_title_size = 12,
   axis_title_face = "plain",
   axis_title_just = "rt",
-  plot_margin = margin(5.5, 5.5, 5.5, 5.5),
+  plot_margin = margin(base_size/2, base_size/2, base_size/2, base_size/2),
   grid_col = "#cccccc",
   grid = TRUE,
   axis_col = "#cccccc",
@@ -129,5 +129,4 @@ mtcars \%>\%
    theme_ceiglobal() +
    theme(axis.text.y=element_blank())
 }
-
 }

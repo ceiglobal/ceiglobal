@@ -104,7 +104,7 @@ NULL
 #'    theme_ceiglobal() +
 #'    theme(axis.text.y=element_blank())
 #' }
-#'
+
 theme_ceiglobal <- function(base_family="Raleway", base_size = 10,
                         plot_title_family=base_family, plot_title_size = 13,
                         plot_title_face="bold", plot_title_margin = 12,
@@ -123,7 +123,7 @@ theme_ceiglobal <- function(base_family="Raleway", base_size = 10,
                         axis_title_family = subtitle_family,
                         axis_title_size = 12,
                         axis_title_face = "plain", axis_title_just = "rt",
-                        plot_margin = margin(5.5, 5.5, 5.5, 5.5),
+                        plot_margin = margin(base_size/2, base_size/2, base_size/2, base_size/2),
                         grid_col = "#cccccc", grid = TRUE,
                         axis_col = "#cccccc", axis = FALSE, ticks = FALSE) {
 
@@ -200,8 +200,11 @@ theme_ceiglobal <- function(base_family="Raleway", base_size = 10,
   ret <- ret + theme(strip.text=element_text(size=strip_text_size,
                                              face=strip_text_face, family=strip_text_family, colour = strip_text_colour))
   ret <- ret + theme(strip.background = element_rect(fill = strip_background))
-  ret <- ret + theme(panel.spacing=grid::unit(2, "lines"))
-  ret <- ret + theme(plot.background = element_rect(fill = plot_background_fill, colour = plot_background_line_colour, size = plot_background_line_weight))
+  ret <- ret + theme(panel.spacing=grid::unit(2.5, "pt"))
+  #ret <- ret + theme(panel.spacing=grid::unit(2, "lines"))
+  ret <- ret + theme(plot.background = element_rect(fill = plot_background_fill,
+                                                    colour = plot_background_line_colour,
+                                                    size = plot_background_line_weight))
   ret <- ret + theme(plot.title=element_text(size=plot_title_size,
                                              margin=margin(b=plot_title_margin),
                                              family=plot_title_family, face=plot_title_face))
@@ -364,6 +367,6 @@ test_plot <- mtcars %>%
   aes(x = gear, y = mpg, fill = factor(gear)) +
   scale_fill_manual(values = cei_colour_3) +
   geom_bar(stat = "identity") +
-  facet_grid(~cyl) +
+  facet_wrap(~cyl, ncol = 1) +
   theme_ceiglobal()
 
