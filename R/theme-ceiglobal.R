@@ -362,11 +362,11 @@ cei_colour_10 <- unikn::usecol(cei_colour_palette, n = 10)
 #' @export
 cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 
-test_plot <- mtcars %>%
-  ggplot() +
-  aes(x = gear, y = mpg, fill = factor(gear)) +
-  scale_fill_manual(values = cei_colour_3) +
-  geom_bar(stat = "identity") +
-  facet_wrap(~cyl, ncol = 1) +
-  theme_ceiglobal()
+#test_plot <- mtcars %>%
+#  ggplot() +
+#  aes(x = gear, y = mpg, fill = factor(gear)) +
+#  scale_fill_manual(values = cei_colour_3) +
+#  geom_bar(stat = "identity") +
+#  facet_wrap(~cyl, ncol = 1) +
+#  theme_ceiglobal()
 
