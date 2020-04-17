@@ -124,8 +124,10 @@ theme_ceiglobal <- function(base_family="Raleway", base_size = 10,
                         axis_title_size = 11,
                         axis_title_face = "plain", axis_title_just = "rt",
                         plot_margin = margin(base_size/2, base_size/2, base_size/2, base_size/2),
-                        grid_col = "#cccccc", grid = TRUE,
-                        axis_col = "#cccccc", axis = FALSE, ticks = FALSE) {
+                        #grid_col = "#cccccc", grid = TRUE,
+                        #axis_col = "#cccccc", axis = FALSE, ticks = FALSE
+                        grid_col = cei_grey, grid = TRUE,
+                        axis_col = cei_grey, axis = FALSE, ticks = FALSE) {
 
   ret <- ggplot2::theme_minimal(base_family=base_family, base_size=base_size)
 
@@ -369,6 +371,8 @@ cei_colour_10 <- unikn::usecol(cei_colour_palette, n = 10)
 #' @export
 cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 
+## TESTING
+
 #test_plot <- mtcars %>%
 #  ggplot() +
 #  aes(x = gear, y = mpg, fill = factor(gear)) +
@@ -377,3 +381,8 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 #  facet_wrap(~cyl, ncol = 1) +
 #  theme_ceiglobal()
 
+# library(devtools)
+
+# document() # update documents
+# check() # perform checks
+# load_all() # load new version

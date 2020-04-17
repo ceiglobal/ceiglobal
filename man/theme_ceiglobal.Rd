@@ -33,9 +33,9 @@ theme_ceiglobal(
   axis_title_face = "plain",
   axis_title_just = "rt",
   plot_margin = margin(base_size/2, base_size/2, base_size/2, base_size/2),
-  grid_col = "#cccccc",
+  grid_col = cei_grey,
   grid = TRUE,
-  axis_col = "#cccccc",
+  axis_col = cei_grey,
   axis = FALSE,
   ticks = FALSE
 )
