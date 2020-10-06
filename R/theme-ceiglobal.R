@@ -109,8 +109,8 @@ theme_ceiglobal <- function(base_family="Arial", base_size = 10,
                         plot_title_family=base_family, plot_title_size = 13,
                         plot_title_face="bold", plot_title_margin = 12,
                         plot_background_fill = cei_grey,
-                        #plot_background_line_colour = cei_dark_grey,
-                        #plot_background_line_weight = 2,
+                        plot_background_line_colour = cei_grey,
+                        plot_background_line_weight = 0.1,
                         subtitle_family=base_family, subtitle_size = 12,
                         subtitle_face = "plain", subtitle_margin = 12,
                         strip_text_family = base_family, strip_text_size = 9,
@@ -211,9 +211,9 @@ theme_ceiglobal <- function(base_family="Arial", base_size = 10,
   ret <- ret + theme(strip.background = element_rect(fill = strip_background))
   ret <- ret + theme(panel.spacing=grid::unit(2.5, "pt"))
   #ret <- ret + theme(panel.spacing=grid::unit(2, "lines"))
-  ret <- ret + theme(plot.background = element_rect(fill = plot_background_fill#,
-                                                    #colour = plot_background_line_colour,
-                                                    #size = plot_background_line_weight
+  ret <- ret + theme(plot.background = element_rect(fill = plot_background_fill,
+                                                    colour = plot_background_line_colour,
+                                                    size = plot_background_line_weight
                                                     ))
   ret <- ret + theme(plot.title=element_text(size=plot_title_size,
                                              margin=margin(b=plot_title_margin),
