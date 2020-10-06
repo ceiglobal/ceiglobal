@@ -105,7 +105,7 @@ NULL
 #'    theme(axis.text.y=element_blank())
 #' }
 
-theme_ceiglobal <- function(base_family="Raleway", base_size = 10,
+theme_ceiglobal <- function(base_family="Arial", base_size = 10,
                         plot_title_family=base_family, plot_title_size = 13,
                         plot_title_face="bold", plot_title_margin = 12,
                         plot_background_fill = cei_grey,
@@ -211,9 +211,10 @@ theme_ceiglobal <- function(base_family="Raleway", base_size = 10,
   ret <- ret + theme(strip.background = element_rect(fill = strip_background))
   ret <- ret + theme(panel.spacing=grid::unit(2.5, "pt"))
   #ret <- ret + theme(panel.spacing=grid::unit(2, "lines"))
-  ret <- ret + theme(plot.background = element_rect(fill = plot_background_fill,
-                                                    colour = plot_background_line_colour,
-                                                    size = plot_background_line_weight))
+  ret <- ret + theme(plot.background = element_rect(fill = plot_background_fill#,
+                                                    #colour = plot_background_line_colour,
+                                                    #size = plot_background_line_weight
+                                                    ))
   ret <- ret + theme(plot.title=element_text(size=plot_title_size,
                                              margin=margin(b=plot_title_margin),
                                              family=plot_title_family, face=plot_title_face))
@@ -235,7 +236,7 @@ theme_ceiglobal <- function(base_family="Raleway", base_size = 10,
 #'
 #' @param family,face,size,color font family name, face, size and color
 #' @export
-update_geom_font_defaults <- function(family="Raleway", face="plain", size=3.5,
+update_geom_font_defaults <- function(family="Arial", face="plain", size=3.5,
                                       color = "#2b2b2b") {
   update_geom_defaults("text", list(family=family, face=face, size=size, color=color))
   update_geom_defaults("label", list(family=family, face=face, size=size, color=color))
@@ -380,7 +381,7 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 #  geom_bar(stat = "identity") +
 #  facet_wrap(~cyl, ncol = 1) +
 #  theme_ceiglobal()
-
+#test_plot
 # library(devtools)
 
 # document() # update documents
