@@ -109,8 +109,8 @@ theme_ceiglobal <- function(base_family="Arial", base_size = 10,
                         plot_title_family=base_family, plot_title_size = 13,
                         plot_title_face="bold", plot_title_margin = 12,
                         plot_background_fill = cei_grey,
-                        plot_background_line_colour = cei_dark_grey,
-                        plot_background_line_weight = 2,
+                        #plot_background_line_colour = cei_dark_grey,
+                        #plot_background_line_weight = 2,
                         subtitle_family=base_family, subtitle_size = 12,
                         subtitle_face = "plain", subtitle_margin = 12,
                         strip_text_family = base_family, strip_text_size = 9,
@@ -374,14 +374,14 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 
 ## TESTING
 
-#test_plot <- mtcars %>%
-#  ggplot() +
-#  aes(x = gear, y = mpg, fill = factor(gear)) +
-#  scale_fill_manual(values = cei_colour_3) +
-#  geom_bar(stat = "identity") +
-#  facet_wrap(~cyl, ncol = 1) +
-#  theme_ceiglobal()
-#test_plot
+# test_plot <- mtcars %>%
+#   ggplot() +
+#   aes(x = gear, y = mpg, fill = factor(gear)) +
+#   scale_fill_manual(values = cei_colour_3) +
+#   geom_bar(stat = "identity") +
+#   facet_wrap(~cyl, ncol = 1) +
+#   theme_ceiglobal()
+# test_plot
 # library(devtools)
 
 # document() # update documents
