@@ -34,7 +34,7 @@ NULL
 #' @rdname ceiglobal-exports
 NULL
 #'
-#' A [ggplot2] theme consistent with the CEI style guide
+#' A [ggplot2] theme consistent with the new CEI style guide developed by Effusion
 #'
 #' @md
 #' @section Building upon `theme_ceiglobal`:
@@ -61,6 +61,9 @@ NULL
 #' @param subtitle_margin plot subtitle margin bottom (single numeric value)
 #' @param strip_text_family,strip_text_face,strip_text_size,strip_text_colour facet label font family, face, size and colour
 #' @param strip_background facet title background
+#' @param panel_background panel background colour
+#' @param panel_border panel border colour
+#' @param strip_colour facet title background line
 #' @param caption_family,caption_face,caption_size,caption_margin plot caption family, face, size and margin
 #' @param axis_title_family,axis_title_face,axis_title_size axis title font family, face and size
 #' @param axis_title_just axis title font justification, one of `[blmcrt]`
@@ -105,43 +108,54 @@ NULL
 #'    theme(axis.text.y=element_blank())
 #' }
 
-theme_ceiglobal <- function(base_family="Arial", base_size = 10,
+theme_ceiglobal <- function(base_family="Apercu Pro", base_size = 10,
                         plot_title_family=base_family, plot_title_size = 13,
                         plot_title_face="bold", plot_title_margin = 12,
-                        plot_background_fill = cei_grey,
-                        plot_background_line_colour = cei_grey,
-                        plot_background_line_weight = 0.1,
+                        plot_background_fill = "white",
+                        plot_background_line_colour = "white",
+                        plot_background_line_weight = 0,
+                        panel_background = cei_grey,
+                        panel_border = cei_grey,
                         subtitle_family=base_family, subtitle_size = 12,
                         subtitle_face = "plain", subtitle_margin = 12,
-                        strip_text_family = base_family, strip_text_size = 9,
+                        strip_text_family = base_family, strip_text_size = 10,
                         strip_text_face = "bold",
-                        strip_text_colour = "white",
-                        strip_background = cei_dark_grey,
+                        strip_text_colour = "black",
+                        strip_background = "white",
+                        strip_colour = "white",
                         caption_family = base_family, caption_size = 8,
                         caption_face = "italic", caption_margin = 10,
-                        axis_text_size = base_size-2,
+                        axis_text_size = base_size-1,
+                        axis_text_colour = "black",
+                        axis_text_face = "bold",
                         axis_title_family = subtitle_family,
-                        axis_title_size = 11,
-                        axis_title_face = "plain", axis_title_just = "rt",
+                        axis_title_size = 12,
+                        axis_title_face = "bold",
+                        axis_title_just = "rt",
                         plot_margin = margin(base_size/2, base_size/2, base_size/2, base_size/2),
-                        #grid_col = "#cccccc", grid = TRUE,
-                        #axis_col = "#cccccc", axis = FALSE, ticks = FALSE
                         grid_col = cei_grey, grid = TRUE,
-                        axis_col = cei_grey, axis = FALSE, ticks = FALSE) {
+                        axis_col = cei_grey, axis = FALSE, ticks = FALSE
+                        ) {
 
   ret <- ggplot2::theme_minimal(base_family=base_family, base_size=base_size)
 
   ret <- ret + theme(legend.background=element_blank())
   ret <- ret + theme(legend.key=element_blank())
-  ret <- ret + theme(panel.background = element_blank())
+  #ret <- ret + theme(panel.background = element_blank())
+  ret <- ret + theme(panel.background = element_rect(
+    fill = panel_background,
+    colour = "white"))
   ret <- ret + theme(panel.border = element_blank())
   ret <- ret + theme(axis.line = element_blank())
 
   if (inherits(grid, "character") | grid == TRUE) {
 
-    ret <- ret + theme(panel.grid=element_line(color=grid_col, size=0.2))
-    ret <- ret + theme(panel.grid.major=element_line(color=grid_col, size=0.2))
-    ret <- ret + theme(panel.grid.minor=element_line(color=grid_col, size=0.15))
+    #ret <- ret + theme(panel.grid=element_line(color=grid_col, size=0.1))
+    ret <- ret + theme(panel.grid=element_blank())
+    ret <- ret + theme(panel.grid.major=element_blank())
+    #ret <- ret + theme(panel.grid.major=element_line(color=grid_col, size=0.1))
+    ret <- ret + theme(panel.grid.minor=element_blank())
+    #ret <- ret + theme(panel.grid.minor=element_line(color=grid_col, size=0.15))
 
     if (inherits(grid, "character")) {
       if (regexpr("X", grid)[1] < 0) ret <- ret + theme(panel.grid=element_blank()) #theme(panel.grid.major.x=element_blank())
@@ -197,33 +211,78 @@ theme_ceiglobal <- function(base_family="Arial", base_size = 10,
   #xj <- switch(tolower(substr(axis_title_just, 1, 1)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
   #yj <- switch(tolower(substr(axis_title_just, 2, 2)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
 
-  ret <- ret + theme(axis.text.x=element_text(size=axis_text_size, vjust=0.9, margin=margin(t=0.0)))
-  ret <- ret + theme(axis.text.y=element_text(size=axis_text_size, vjust=0.75, margin=margin(r=0.0)))
-  ret <- ret + theme(axis.title=element_text(size=axis_title_size, family=axis_title_family))
-  ret <- ret + theme(axis.title.x=element_text(size=axis_title_size,
-                                               family=axis_title_family, face=axis_title_face))
-  ret <- ret + theme(axis.title.y=element_text(size=axis_title_size,
-                                               family=axis_title_family, face=axis_title_face))
-  ret <- ret + theme(axis.title.y.right=element_text(size=axis_title_size, angle=90,
-                                                     family=axis_title_family, face=axis_title_face))
-  ret <- ret + theme(strip.text=element_text(size=strip_text_size,
-                                             face=strip_text_face, family=strip_text_family, colour = strip_text_colour))
-  ret <- ret + theme(strip.background = element_rect(fill = strip_background))
+  ret <- ret + theme(axis.text.x=element_text(
+    size=axis_text_size,
+    colour=axis_text_colour,
+    vjust=0.9,
+    margin=margin(t=0.0)))
+
+  ret <- ret + theme(axis.text.y=element_text(
+    size=axis_text_size,
+    colour=axis_text_colour,
+    vjust=0.75,
+    margin=margin(r=0.0)))
+
+  ret <- ret + theme(axis.title=element_text(
+    size=axis_title_size,
+    family=axis_title_family))
+
+  ret <- ret + theme(axis.title.x=element_text(
+    size=axis_title_size,
+    family=axis_title_family,
+    colour=axis_text_colour,
+    face=axis_title_face))
+
+  ret <- ret + theme(axis.title.y=element_text(
+    size=axis_title_size,
+    family=axis_title_family,
+    colour=axis_text_colour,
+    face=axis_title_face))
+
+  ret <- ret + theme(axis.title.y.right=element_text(
+    size=axis_title_size,
+    angle=90,
+    family=axis_title_family,
+    colour=axis_text_colour,
+    face=axis_title_face))
+
+  ret <- ret + theme(strip.text=element_text(
+    size=strip_text_size,
+    face=strip_text_face,
+    family=strip_text_family,
+    colour = strip_text_colour))
+
+  ret <- ret + theme(strip.background = element_rect(
+    fill = strip_background,
+    colour = strip_colour))
+
   ret <- ret + theme(panel.spacing=grid::unit(2.5, "pt"))
+
   #ret <- ret + theme(panel.spacing=grid::unit(2, "lines"))
-  ret <- ret + theme(plot.background = element_rect(fill = plot_background_fill,
-                                                    colour = plot_background_line_colour,
-                                                    size = plot_background_line_weight
-                                                    ))
-  ret <- ret + theme(plot.title=element_text(size=plot_title_size,
-                                             margin=margin(b=plot_title_margin),
-                                             family=plot_title_family, face=plot_title_face))
-  ret <- ret + theme(plot.subtitle=element_text(size=subtitle_size,
-                                                margin=margin(b=subtitle_margin),
-                                                family=subtitle_family, face=subtitle_face))
-  ret <- ret + theme(plot.caption=element_text(hjust=1, size=caption_size,
-                                               margin=margin(t=caption_margin),
-                                               family=caption_family, face=caption_face))
+
+  ret <- ret + theme(plot.background = element_rect(
+    fill = plot_background_fill,
+    colour = plot_background_line_colour,
+    size = plot_background_line_weight))
+
+  ret <- ret + theme(plot.title=element_text(
+    size=plot_title_size,
+    margin=margin(b=plot_title_margin),
+    family=plot_title_family,
+    face=plot_title_face))
+
+  ret <- ret + theme(plot.subtitle=element_text(
+    size=subtitle_size,
+    margin=margin(b=subtitle_margin),
+    family=subtitle_family,
+    face=subtitle_face))
+
+  ret <- ret + theme(plot.caption=element_text(
+    hjust=1, size=caption_size,
+    margin=margin(t=caption_margin),
+    family=caption_family,
+    face=caption_face))
+
   ret <- ret + theme(plot.margin=plot_margin)
 
   ret
@@ -236,25 +295,25 @@ theme_ceiglobal <- function(base_family="Arial", base_size = 10,
 #'
 #' @param family,face,size,color font family name, face, size and color
 #' @export
-update_geom_font_defaults <- function(family="Arial", face="plain", size=3.5,
+update_geom_font_defaults <- function(family="Apercu Pro",
+                                      face="plain", size=3.5,
                                       color = "#2b2b2b") {
   update_geom_defaults("text", list(family=family, face=face, size=size, color=color))
   update_geom_defaults("label", list(family=family, face=face, size=size, color=color))
 }
 
-#' @rdname Raleway
+#' @rdname `Apercu Pro`
 #' @md
-#' @title Raleway font name R variable aliases
-#' @description `font_raleway` == "`Raleway`"
+#' @title Aperçu font name R variable aliases
+#' @description `font_apercu_pro` == "`Apercu Pro`"
 #' @format length 1 character vector
 #' @export
-font_raleway <- "Raleway"
+font_apercu_pro <- "Apercu Pro"
 
 #' @md
 #' @section
 #' This section details the colour scheme used in `theme_ceiglobal`
 #' @param cei_colours List of hex codes for CEI colour palette from style guide
-#' @param cei_dark_grey CEI dark grey colour from style guide
 #' @param cei_grey CEI grey colour from style guide
 #' @param cei_colour_palette List of named hex codes for CEI colour palette from style guide
 #' @param cei_colour_2 two toned palette for figures using CEI style guide
@@ -275,53 +334,107 @@ font_raleway <- "Raleway"
 #' @format list
 #' @export
 cei_colours <- c(
-  rgb(0, 169, 143, maxColorValue = 255),  # teal
-  rgb(0, 154, 218, maxColorValue = 255),  # aqua
+  rgb(0, 169, 143, maxColorValue = 255),  # green
+  rgb(17, 206, 170, maxColorValue = 255), # light green
+  rgb(0, 154, 218, maxColorValue = 255),  # blue
   rgb(89, 86, 165, maxColorValue = 255),  # purple
-  rgb(41, 55, 117, maxColorValue = 255), # dark blue
-  rgb(22, 33, 31, maxColorValue = 255))  # dark grey
+  rgb(65, 65, 150, maxColorValue = 255), # dark purple
+  rgb(0, 120, 201, maxColorValue = 255)#, # dark blue
+  #rgb(22, 33, 31, maxColorValue = 255), # dark grey
+  #rgb(242, 242, 242, maxColorValue = 255) # light grey
+  #rgb(255, 246, 164, maxColorValue = 255) # yellow
+  )
 
-#' @rdname cei_dark_grey
+#' @rdname cei_purple
 #' @md
-#' @title CEI dark grey colour from style guide
+#' @title CEI purple colour from style guide
 #' @format length 1 character vector
 #' @export
-cei_dark_grey <- rgb(22, 33, 31, maxColorValue = 255)
+cei_purple <- rgb(89, 86, 165, maxColorValue = 255)
+
+#' @rdname cei_green
+#' @md
+#' @title CEI purple colour from style guide
+#' @format length 1 character vector
+#' @export
+cei_green <- rgb(0, 169, 143, maxColorValue = 255)
 
 #' @rdname cei_grey
 #' @md
 #' @title CEI grey colour from style guide
 #' @format length 1 character vector
 #' @export
-cei_grey <- rgb(230, 230, 230, maxColorValue = 255)
+cei_grey <- rgb(242, 242, 242, maxColorValue = 255)
+
+#' @rdname cei_dark_purple
+#' @md
+#' @title CEI dark purple colour from style guide
+#' @format length 1 character vector
+#' @export
+cei_dark_purple <- rgb(65, 65, 150, maxColorValue = 255)
+
+#' @rdname cei_dark_blue
+#' @md
+#' @title CEI dark blue colour from style guide
+#' @format length 1 character vector
+#' @export
+cei_dark_blue <- rgb(0, 120, 201, maxColorValue = 255)
+
+#' @rdname cei_blue
+#' @md
+#' @title CEI blue colour from style guide
+#' @format length 1 character vector
+#' @export
+cei_blue <- rgb(0, 154, 218, maxColorValue = 255)
+
+#' @rdname cei_light_green
+#' @md
+#' @title CEI light green from style guide
+#' @format length 1 character vector
+#' @export
+cei_light_green <- rgb(17, 206, 170, maxColorValue = 255)
+
+#' @rdname cei_yellow
+#' @md
+#' @title CEI yellow from style guide
+#' @format length 1 character vector
+#' @export
+cei_yellow <- rgb(255, 246, 164, maxColorValue = 255)
+
+#' @rdname cei_line_grey
+#' @md
+#' @title CEI line grey from style guide
+#' @format length 1 character vector
+#' @export
+cei_line_grey <- rgb(216, 216, 216, maxColorValue = 255)
 
 #' @rdname cei_colour_palette
 #' @md
 #' @title List of named hex codes for CEI colour palette from style guide
 #' @format list
 #' @export
-cei_colour_palette <- unikn::newpal(col = cei_colours, names = c("teal", "aqua", "purple", "dark blue", "dark grey"))
+cei_colour_palette <- unikn::newpal(col = cei_colours, names = c("green", "light green", "blue", "purple", "dark purple", "dark blue"))
 
 #' @rdname cei_colour_2
 #' @md
 #' @title CEI colour palette with two colours
 #' @format list
 #' @export
-cei_colour_2 <- c("#00A98F", "#293775")
+cei_colour_2 <- c("#00A98F", "#5956A5")
 
 #' @rdname cei_colour_3
 #' @md
 #' @title CEI colour palette with three colours
 #' @format list
 #' @export
-cei_colour_3 <- c("#00A98F", "#009ADA", "#293775")
+cei_colour_3 <- c("#00A98F", "#009ADA", "#5956A5")
 
 #' @rdname cei_colour_4
 #' @md
 #' @title CEI colour palette with four colours
 #' @format list
 #' @export
-cei_colour_4 <- c("#00A98F", "#009ADA", "#5956A5", "#293775")
+cei_colour_4 <- c("#00A98F", "#009ADA", "#5956A5", "#0078C9")
 
 #' @rdname cei_colour_5
 #' @md
@@ -374,16 +487,31 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 
 ## TESTING
 
-# test_plot <- mtcars %>%
-#   ggplot() +
-#   aes(x = gear, y = mpg, fill = factor(gear)) +
-#   scale_fill_manual(values = cei_colour_3) +
-#   geom_bar(stat = "identity") +
-#   facet_wrap(~cyl, ncol = 1) +
-#   theme_ceiglobal()
-# test_plot
-# library(devtools)
+# library(tidyverse)
+#
+#  test_plot <- mtcars %>%
+#    ggplot() +
+#    aes(x = gear, y = mpg, fill = factor(gear)) +
+#    scale_fill_manual(values = cei_colour_3) +
+#    geom_bar(stat = "identity") +
+#    facet_wrap(~cyl, ncol = 1) +
+#    theme_ceiglobal()
+#  test_plot
+#
+#  mtcars %>%
+#    ggplot() +
+#     aes(
+#       x = wt,
+#       y = mpg,
+#       label = rownames(mtcars)) +
+#     geom_text(family = "Apercu Pro",
+#               colour = cei_blue) +
+#    geom_point(colour = cei_purple) +
+#    theme_ceiglobal()
 
-# document() # update documents
-# check() # perform checks
-# load_all() # load new version
+
+ library(devtools)
+
+ document() # update documents
+ check() # perform checks
+ load_all() # load new version

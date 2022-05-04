@@ -13,9 +13,10 @@
 
   fnt <- extrafont::fonttable()
   if (!any(grepl("Raleway", fnt$FamilyName))) {
-    packageStartupMessage("NOTE: Raleway font is required to use this theme.")
+    packageStartupMessage("NOTE: Apercu Pro font is required to use this theme.")
     packageStartupMessage("      The font will have been downloaded with this package and should be installed automatically.")
-    packageStartupMessage("      If this does not occur, please source from CEI's dropbox and install the font manually")
+    packageStartupMessage("      If this does not occur, please source online from https://www.cufonfonts.com/font/apercu-pro")
+    packageStartupMessage("      (its free) and install the font manually")
   } # nocov end
 
 }
