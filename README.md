@@ -42,16 +42,17 @@ repositories on github.
 1.  Go [here](https://github.com/settings/tokens)
 2.  Select “generate access token”
 3.  Add a note in the box to remind yourself what this is for, something
-    like “theme\_ceiglobal”.
+    like “theme_ceiglobal”.
 4.  Select the checkbox called “repo”, scroll to the bottom and
     “generate token”
 5.  You will be taken to a new page with your PAT create a copy of it
 6.  You need to store this PAT in your R profile, do this in RStudio by
     running the code `usethis::edit_r_profile()`
 7.  This will open up a new tab called `.RProfile*`. You’ll need to run
-    another bit of code `Sys.setenv(GITHUB_PAT = "this is where you
-    paste you PAT")` then save code and close it.
-8.  All done, RStudio now has a record of your PAT\!
+    another bit of code
+    `Sys.setenv(GITHUB_PAT = "this is where you paste you PAT")` then
+    save code and close it.
+8.  All done, RStudio now has a record of your PAT!
 
 ### Final installation
 
@@ -88,7 +89,6 @@ diamonds %>%
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
-
 ## This is what happens when you sprinkle a little bit of cei magic on it
 
 diamonds %>%

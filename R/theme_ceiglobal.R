@@ -486,20 +486,20 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 #    theme_ceiglobal()
 #  test_plot
 #
-#  mtcars %>%
-#    ggplot() +
-#     aes(
-#       x = wt,
-#       y = mpg,
-#       label = rownames(mtcars)) +
-#     geom_text(family = "Apercu Pro",
-#               colour = cei_blue) +
-#    geom_point(colour = cei_purple) +
-#    theme_ceiglobal()
+  # mtcars %>%
+  #   ggplot() +
+  #    aes(
+  #      x = wt,
+  #    y = mpg,
+  #      label = rownames(mtcars)) +
+  #    geom_text(family = "Apercu Pro",
+  #              colour = cei_blue) +
+  #   geom_point(colour = cei_purple) +
+  #   theme_ceiglobal()
 
 
- library(devtools)
+ #library(devtools)
 
  document() # update documents
- check() # perform checks
- load_all() # load new version
+# check() # perform checks
+# load_all() # load new version
