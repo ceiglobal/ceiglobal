@@ -509,6 +509,7 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 
  #library(devtools)
 
-# document() # update documents
-# check() # perform checks
-# load_all() # load new version
+ #options(buildtools.check = function(action) TRUE ) # suppresses RStudio warning
+ #document() # update documents
+ #check() # perform checks
+ #load_all() # load new version
