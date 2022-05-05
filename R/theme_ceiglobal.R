@@ -500,6 +500,6 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 
  #library(devtools)
 
- document() # update documents
+# document() # update documents
 # check() # perform checks
 # load_all() # load new version
