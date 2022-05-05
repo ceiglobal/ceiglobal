@@ -16,8 +16,14 @@ RoxygenNote: 7.1.2
 Suggests: 
     testthat (>= 3.0.0)
 Imports: 
+    tidyverse,
     ggplot2,
-    unikn
+    unikn,
+    extrafont,
+    htmltools, 
+    knitr, 
+    magrittr, 
+    rmarkdown, 
+    scales
 Depends: 
-    tidyverse
 Config/testthat/edition: 3

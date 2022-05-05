@@ -14,9 +14,18 @@
 #' @docType package
 #' @author Dave Taylor (david.taylor@@ceiglobal.org)
 #' @keywords internal
-#' @import ggplot2 grid scales extrafont grDevices unikn
+#' @import tidyverse
+#' @import ggplot2
+#' @import grid
+#' @import scales
+#' @import extrafont
+#' @import grDevices
+#' @import unikn
+#' @import rmarkdown
+#' @import magrittr
+#' @import htmltools
+#' @import knitr
 #' @importFrom magrittr %>%
-#' @import rmarkdown knitr htmltools
 #' @importFrom tools file_path_sans_ext
 NULL
 
