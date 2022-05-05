@@ -9,11 +9,6 @@ A theme for 'ggplot2' based on the cei style guide
 }
 \details{
 The core theme: \code{theme_ceiglobal} is awesome.
-
-There is an option \code{ceiglobal.loadfonts} which -- if set to \code{TRUE} -- will
-call \code{extrafont::loadfonts()} to register non-core fonts with R PDF & PostScript
-devices. If you are running under Windows, the package calls the same function
-to register non-core fonts with the Windows graphics device.
 }
 \author{
 Dave Taylor (david.taylor@ceiglobal.org)

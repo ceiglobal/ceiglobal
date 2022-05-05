@@ -4,11 +4,6 @@
 #'
 #' The core theme: `theme_ceiglobal` is awesome.
 #'
-#' There is an option `ceiglobal.loadfonts` which -- if set to `TRUE` -- will
-#' call `extrafont::loadfonts()` to register non-core fonts with R PDF & PostScript
-#' devices. If you are running under Windows, the package calls the same function
-#' to register non-core fonts with the Windows graphics device.
-#'
 #' @md
 #' @name ceiglobal
 #' @docType package
@@ -297,6 +292,35 @@ update_geom_font_defaults <- function(family="Apercu Pro",
                                       color = "#2b2b2b") {
   update_geom_defaults("text", list(family=family, face=face, size=size, color=color))
   update_geom_defaults("label", list(family=family, face=face, size=size, color=color))
+}
+
+#' Import Aperco Pro for use in charts
+#'
+#' Aperco Pro a trademark of Colophon Foundry
+#'
+#' There is an option `ceiglobal.loadfonts` which -- if set to `TRUE` -- will
+#' call `extrafont::loadfonts()` to register non-core fonts with R PDF & PostScript
+#' devices. If you are running under Windows, the package calls the same function
+#' to register non-core fonts with the Windows graphics device.
+#'
+#' @md
+#' @note This will take care of ensuring PDF/PostScript usage. The location of the
+#'   font directory is displayed after the base import is complete. It is highly
+#'   recommended that you install them on your system the same way you would any
+#'   other font you wish to use in other programs.
+#' @export
+import_aperco_pro <- function() {
+
+  ap_font_dir <- system.file("fonts", "apercu-pro", package="ceiglobal")
+
+  # suppressWarnings(suppressMessages(extrafont::font_import(tw_font_dir, prompt=FALSE)))
+  #
+  # message(
+  #   sprintf(
+  #     "You will likely need to install these fonts on your system as well.\n\nYou can find them in [%s]",
+  #     ap_font_dir)
+  # )
+
 }
 
 #' @rdname `Apercu Pro`
