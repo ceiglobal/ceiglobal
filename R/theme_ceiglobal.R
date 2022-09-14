@@ -112,23 +112,30 @@ NULL
 #'    theme(axis.text.y=element_blank())
 #' }
 
-theme_ceiglobal <- function(base_family="Apercu Pro", base_size = 10,
-                        plot_title_family=base_family, plot_title_size = 13,
-                        plot_title_face="bold", plot_title_margin = 12,
+theme_ceiglobal <- function(base_family="Apercu Pro", base_size = 12,
+                        plot_title_family=base_family,
+                        plot_title_size = 13,
+                        plot_title_face="bold",
+                        plot_title_margin = 12,
                         plot_background_fill = "white",
                         plot_background_line_colour = "white",
                         plot_background_line_weight = 0,
                         panel_background = cei_grey,
                         panel_border = cei_grey,
-                        subtitle_family=base_family, subtitle_size = 12,
-                        subtitle_face = "plain", subtitle_margin = 12,
-                        strip_text_family = base_family, strip_text_size = 10,
+                        subtitle_family=base_family,
+                        subtitle_size = 12,
+                        subtitle_face = "plain",
+                        subtitle_margin = 12,
+                        strip_text_family = base_family,
+                        strip_text_size = 12,
                         strip_text_face = "bold",
                         strip_text_colour = "black",
                         strip_background = "white",
                         strip_colour = "white",
-                        caption_family = base_family, caption_size = 8,
-                        caption_face = "italic", caption_margin = 10,
+                        caption_family = base_family,
+                        caption_size = 9,
+                        caption_face = "italic",
+                        caption_margin = 10,
                         axis_text_size = base_size-1,
                         axis_text_colour = "black",
                         axis_text_face = "bold",
@@ -508,17 +515,17 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 
 ## TESTING
 
-# library(tidyverse)
-#
-#  test_plot <- mtcars %>%
-#    ggplot() +
-#    aes(x = gear, y = mpg, fill = factor(gear)) +
-#    scale_fill_manual(values = cei_colour_3) +
-#    geom_bar(stat = "identity") +
-#    facet_wrap(~cyl, ncol = 1) +
-#    theme_ceiglobal()
-#  test_plot
-#
+ library(tidyverse)
+
+  #test_plot <- mtcars %>%
+  #  ggplot() +
+  #  aes(x = gear, y = mpg, fill = factor(gear)) +
+  #  scale_fill_manual(values = cei_colour_3) +
+  #  geom_bar(stat = "identity") +
+  #  facet_wrap(~cyl, ncol = 1) +
+  #  theme_ceiglobal()
+  #test_plot
+
   # mtcars %>%
   #   ggplot() +
   #    aes(

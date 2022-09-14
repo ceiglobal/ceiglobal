@@ -15,47 +15,6 @@ with CEI’s style guide.
 
 ## Installation
 
-This is a ‘private’ package that you can only install if you are a
-member of the ceiglobal organisation on github. To obtain access you
-will need: a) a github account, b) access to CEI’s organisation on
-github, c) a personal access token (PAT) to prevent unauthorised access
-and d) a couple of lines of code to install. The steps for each are
-outlined below.
-
-### Get a github account
-
-This is nice and easy. Go to [github.com](www.github.com) and sign up
-for a free account and pick a username. Your username can be anything,
-it doesn’t have to be work-related.
-
-### Get access to CEI’s organisation on github
-
-Send Dave your github username and he’ll add you manually.
-
-### Get a personal access token so you can download the package
-
-This is a little tricker, but we’ll walk you through it.
-
-The personal access token prevents any unauthorised access to our
-repositories on github.
-
-1.  Go [here](https://github.com/settings/tokens)
-2.  Select “generate access token”
-3.  Add a note in the box to remind yourself what this is for, something
-    like “theme_ceiglobal”.
-4.  Select the checkbox called “repo”, scroll to the bottom and
-    “generate token”
-5.  You will be taken to a new page with your PAT create a copy of it
-6.  You need to store this PAT in your R profile, do this in RStudio by
-    running the code `usethis::edit_r_profile()`
-7.  This will open up a new tab called `.RProfile*`. You’ll need to run
-    another bit of code
-    `Sys.setenv(GITHUB_PAT = "this is where you paste you PAT")` then
-    save code and close it.
-8.  All done, RStudio now has a record of your PAT!
-
-### Final installation
-
 You can on install this package by running this code below. Note: you
 will need the install and load the package `devtools` first. To install
 run `install.package("devtools")`, to load run`library("devtools")`.
@@ -89,6 +48,7 @@ diamonds %>%
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
+
 ## This is what happens when you sprinkle a little bit of cei magic on it
 
 diamonds %>%
