@@ -144,11 +144,11 @@ theme_ceiglobal <- function(base_family="Apercu Pro", base_size = 12,
                         axis_title_face = "bold",
                         axis_title_just = "rt",
                         legend_title_family = base_family,
-                        legend_title_size = 12,
+                        legend_title_size = 14,
                         legend_title_face = "bold",
                         legend_title_colour = "black",
                         legend_text_family = base_family,
-                        legend_text_size = 10,
+                        legend_text_size = 12,
                         legend_text_colour = "black",
                         plot_margin = margin(base_size/2, base_size/2, base_size/2, base_size/2),
                         grid_col = cei_grey, grid = TRUE,
@@ -262,7 +262,7 @@ theme_ceiglobal <- function(base_family="Apercu Pro", base_size = 12,
 
   ret <- ret + theme(legend.title=element_text(
     size = legend_title_size,
-    face = legend_title_face,
+    #face = legend_title_face,
     family = legend_text_family,
     colour = legend_text_colour))
 
