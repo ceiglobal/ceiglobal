@@ -268,7 +268,7 @@ theme_ceiglobal <- function(base_family="Apercu Pro", base_size = 12,
 
   ret <- ret + theme(legend.text=element_text(
     size = legend_text_size,
-    face = legend_text_face,
+    #face = legend_text_face,
     family = legend_text_family,
     colour = legend_text_colour))
 
