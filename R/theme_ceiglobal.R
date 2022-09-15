@@ -143,6 +143,13 @@ theme_ceiglobal <- function(base_family="Apercu Pro", base_size = 12,
                         axis_title_size = 18,
                         axis_title_face = "bold",
                         axis_title_just = "rt",
+                        legend_title_family = base_family,
+                        legend_title_size = 12,
+                        legend_title_face = "bold",
+                        legend_title_colour = "black",
+                        legend_text_family = base_family,
+                        legend_text_size = 10,
+                        legend_text_colour = "black",
                         plot_margin = margin(base_size/2, base_size/2, base_size/2, base_size/2),
                         grid_col = cei_grey, grid = TRUE,
                         axis_col = cei_grey, axis = FALSE, ticks = FALSE
@@ -252,6 +259,18 @@ theme_ceiglobal <- function(base_family="Apercu Pro", base_size = 12,
     face=strip_text_face,
     family=strip_text_family,
     colour = strip_text_colour))
+
+  ret <- ret + theme(legend.title=element_text(
+    size = legend_title_size,
+    face = legend_title_face,
+    family = legend_text_family,
+    colour = legend_text_colour))
+
+  ret <- ret + theme(legend.text=element_text(
+    size = legend_text_size,
+    face = legend_text_face,
+    family = legend_text_family,
+    colour = legend_text_colour))
 
   ret <- ret + theme(strip.background = element_rect(
     fill = strip_background,
@@ -515,7 +534,7 @@ cei_colour_11 <- unikn::usecol(cei_colour_palette, n = 11)
 
 ## TESTING
 
- library(tidyverse)
+ #library(tidyverse)
 
   #test_plot <- mtcars %>%
   #  ggplot() +
